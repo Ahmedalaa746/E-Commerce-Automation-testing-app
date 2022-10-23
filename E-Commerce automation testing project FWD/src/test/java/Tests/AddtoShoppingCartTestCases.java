@@ -1,11 +1,14 @@
 package Tests;
 
 import Pages.*;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class AddtoShoppingCartTestCases extends BasePage {
+public class AddtoShoppingCartTestCases extends TestBase {
+    public AddtoShoppingCartTestCases(WebDriver driver){ super(driver);}
+
 
     HomePage homeObj;
     SerachPage searchObj;
@@ -23,7 +26,7 @@ public class AddtoShoppingCartTestCases extends BasePage {
     @Test(priority = 2)
 
     public void AddProductsToShoppingCart()throws InterruptedException{
-        softAssert soft = new softAssert();
+        SoftAssert soft = new SoftAssert();
         DetailsPage = new ProductsDetailsPage(driver);
         homeObj = new HomePage(driver);
         shopObj = new ShoppingCartPage(driver);
@@ -34,7 +37,7 @@ public class AddtoShoppingCartTestCases extends BasePage {
         DetailsPage.AddProductToShoppingCart();
         Thread.sleep(2000);
         System.out.println("Number of products on shopping Cart= "+homeObj.ShoppingCartCount.getText());
-        soft.assertTrue(homeObj.ShoppingCartCount.getText().contains("(2")),"issue of Number of products on shopping cart");
+        soft.assertTrue(homeObj.ShoppingCartCount.getText().contains("(2"));
 
 
         soft.assertTrue(shopObj.SuccessMessage.isDisplayed(),"success message issue");

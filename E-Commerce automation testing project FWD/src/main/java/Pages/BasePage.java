@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class BasePage {
 
-    WebDriver driver ;
+    public WebDriver driver ;
     public JavascriptExecutor JavaEx ;
     public Select select ;
     public Actions action ;
